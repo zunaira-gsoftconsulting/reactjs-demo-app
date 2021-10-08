@@ -1,4 +1,11 @@
+import { useHistory } from "react-router-dom";
 function Home() {
+  const history = useHistory();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    history.push("/login");
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -13,6 +20,7 @@ function Home() {
         >
           Learn React
         </a>
+        <button onClick={handleLogout}>Logout</button>
       </header>
     </div>
   );
