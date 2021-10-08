@@ -1,21 +1,21 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { useState } from "react";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/lib/integration/react";
+import storeConfig from "./redux/store";
+import { ThemeProvider } from "@mui/material/styles";
+import AppRouter from "./utils/routes/index";
+import { themes } from "./utils/theme";
 function App() {
+  const { store, persistor } = storeConfig;
+  const [theme, setTheme] = useState(themes[1]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <ThemeProvider theme={theme}>
+          <AppRouter />
+        </ThemeProvider>
+      </PersistGate>
+    </Provider>
   );
 }
 
