@@ -11,11 +11,17 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { useTheme } from "@mui/material/styles";
+import { useTranslation } from "react-i18next";
+import { useDispatch } from 'react-redux';
+import LanguagePopover from '../../components/LanguagePopover';
+import { changeLanguage } from '../../redux/actions/settings';
 import { ColorModeContext } from "../../utils/context";
 
 function Header () {
   const history = useHistory();
+  const dispatch = useDispatch();
   const theme = useTheme();
+  const [translation, i18n] = useTranslation("translations");
   const colorMode = React.useContext(ColorModeContext);
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -23,6 +29,7 @@ function Header () {
   };
   const [auth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [languageAnchorEl, setLanguageAnchorEl] = React.useState(null);
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -31,15 +38,26 @@ function Header () {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const handleLanguage = (event) => {
+    setLanguageAnchorEl(event.currentTarget);
+  };
+
+  const handleCloseLanguage = () => {
+    setLanguageAnchorEl(null);
+  };
+  const handleLanguageChange = (lang)=>{
+    dispatch(changeLanguage(lang))
+    handleCloseLanguage()
+  }
 
   return (
     <Grid container>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Demo App
+          {translation("nav.title")}
           </Typography>
-          {theme.palette.mode} mode
+          {theme.palette.mode}  {translation("nav.mode")}
           <IconButton
             sx={{ ml: 1 }}
             onClick={colorMode.toggleColorMode}
@@ -57,6 +75,8 @@ function Header () {
           >
             <LogoutIcon />
           </IconButton>
+          <LanguagePopover handleLanguageChange={handleLanguageChange}/>
+          
           {auth && (
             <div>
               <IconButton

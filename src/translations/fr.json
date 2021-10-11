@@ -1,0 +1,12 @@
+{
+    "nav":{
+        "title":"Demo App",
+        "mode":"mode"
+    },
+    "dashboard":{
+        "title":"tableau de bord",
+        "sales":"ventes hebdomadaires",
+        "products":"des produits",     
+        "income":"le revenu"       
+    }
+}

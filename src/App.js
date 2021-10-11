@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { Provider } from 'react-redux'
+import { Provider, useSelector } from 'react-redux'
 import { PersistGate } from 'redux-persist/lib/integration/react'
 import storeConfig from './redux/store'
 import { ThemeProvider } from '@mui/material/styles'
 import AppRouter from './routes/index'
 import { themes } from './utils/theme'
 import { ColorModeContext } from './utils/context'
-import CssBaseline from '@mui/material/CssBaseline'
 import i18next from 'i18next'
 import { I18nextProvider } from 'react-i18next'
 import englishTranslation from './translations/en.json'
+import frenchTranslation from './translations/fr.json'
 
 i18next.init({
   interpolation: { escapeValue: false },
@@ -18,9 +18,24 @@ i18next.init({
   resources: {
     en: {
       translations: englishTranslation
+    },
+    fr: {
+      translations: frenchTranslation
     }
   }
 })
+
+const LanguageWrapper = () => {
+  const language = useSelector(state => state.settings.language)
+ 
+  useEffect(()=>{
+    i18next.changeLanguage(language);
+  },[language])
+  
+  return <I18nextProvider i18n={i18next}>
+            <AppRouter />
+          </I18nextProvider>
+}
 
 export default function App () {
   const { store, persistor } = storeConfig
@@ -43,13 +58,10 @@ export default function App () {
 
   return (
     <ColorModeContext.Provider value={colorMode}>
-      <CssBaseline />
       <Provider store={store}>
         <PersistGate persistor={persistor}>
           <ThemeProvider theme={theme}>
-          <I18nextProvider i18n={i18next}>
-            <AppRouter />
-          </I18nextProvider>
+            <LanguageWrapper/>
           </ThemeProvider>
         </PersistGate>
       </Provider>

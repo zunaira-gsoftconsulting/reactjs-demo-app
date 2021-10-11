@@ -1,2 +1,13 @@
-{}
+{
+    "nav":{
+        "title":"Demo App",
+        "mode":"mode"
+    },
+    "dashboard":{
+        "title":"Dashboard",
+        "sales":"Weekly Sales",
+        "products":"Products",     
+        "income":"Income"       
+    }
+}
   
