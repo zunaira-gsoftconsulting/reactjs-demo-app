@@ -29,7 +29,6 @@ function Header () {
   };
   const [auth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [languageAnchorEl, setLanguageAnchorEl] = React.useState(null);
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -38,16 +37,9 @@ function Header () {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const handleLanguage = (event) => {
-    setLanguageAnchorEl(event.currentTarget);
-  };
 
-  const handleCloseLanguage = () => {
-    setLanguageAnchorEl(null);
-  };
   const handleLanguageChange = (lang)=>{
     dispatch(changeLanguage(lang))
-    handleCloseLanguage()
   }
 
   return (
@@ -57,7 +49,10 @@ function Header () {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           {translation("nav.title")}
           </Typography>
+          <Typography  sx={{ textTransform:"capitalize" }}>
           {theme.palette.mode}  {translation("nav.mode")}
+          </Typography>
+          
           <IconButton
             sx={{ ml: 1 }}
             onClick={colorMode.toggleColorMode}
