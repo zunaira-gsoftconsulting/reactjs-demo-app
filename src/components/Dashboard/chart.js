@@ -1,6 +1,4 @@
 import * as React from "react";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
 import { useStyles } from "./styles";
 import Chart from "react-apexcharts";
 import { Box, Card, CardHeader } from '@mui/material';
