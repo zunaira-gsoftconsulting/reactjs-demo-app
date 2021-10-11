@@ -2,17 +2,16 @@ import React from 'react'
 import { BrowserRouter as Router, Switch } from 'react-router-dom'
 import ProtectedRoute from './protectedRoute'
 import PublicRoute from './publicRoute'
-import Home from '../pages'
+import Home from '../pages/Dashboard'
 import Login from '../pages/Login'
 import Signup from '../pages/Signup'
-import Paper from '@mui/material/Paper'
 import Grid from '@mui/material/Grid'
 import CssBaseline from '@mui/material/CssBaseline'
 
 function Routes () {
   return (
     <Router>
-    <Grid container component={Paper}>
+    <Grid container >
       <CssBaseline />
         <Switch>
           <ProtectedRoute exact path='/' component={Home} />

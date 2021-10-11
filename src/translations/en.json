@@ -7,7 +7,13 @@
         "title":"Dashboard",
         "sales":"Weekly Sales",
         "products":"Products",     
-        "income":"Income"       
+        "income":"Income" ,      
+        "users":"Users",
+        "chart":{
+            "title":"Conversion Rates",
+            "description":"(+43%) than last year"
+        }
+
     }
 }
   

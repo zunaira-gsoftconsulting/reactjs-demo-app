@@ -4,9 +4,14 @@
         "mode":"mode"
     },
     "dashboard":{
-        "title":"tableau de bord",
-        "sales":"ventes hebdomadaires",
-        "products":"des produits",     
-        "income":"le revenu"       
+        "title":"Tableau de bord",
+        "sales":"Ventes hebdomadaires",
+        "products":"Des produits",     
+        "income":"Le revenu" ,  
+        "users":"Utilisatrices" ,
+        "chart":{
+            "title":"Taux de conversion",
+            "description":"(+43%) que l'an dernier"
+        }     
     }
 }
