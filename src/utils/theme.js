@@ -1,7 +1,8 @@
 import { createTheme } from "@mui/material/styles";
 
-export const themes = ["light", "dark"].map((mode) =>
-  createTheme(
+export const themes = ["light", "dark"].map((mode) => {
+  console.log("mode", mode);
+  return createTheme(
     {
       palette: {
         mode,
@@ -14,6 +15,7 @@ export const themes = ["light", "dark"].map((mode) =>
       },
 
       typography: {
+        color: mode === "light" ? "red" : "#000",
         fontFamily: [
           `-apple-system`,
           `"BlinkMacSystemFont"`,
@@ -29,8 +31,12 @@ export const themes = ["light", "dark"].map((mode) =>
         h4: { fontSize: "1em" },
         h5: { fontSize: "0.8em" },
         h6: { fontSize: "0.7em" },
-        button: { textTransform: "none" },
+        button: {
+          textTransform: "none",
+          background: mode === "light" ? "#fff" : "#rgb(45,136,255)",
+          color: mode === "light" ? "#000" : "#fff",
+        },
       },
     }
-  )
-);
+  );
+});
