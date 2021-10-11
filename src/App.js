@@ -6,6 +6,21 @@ import { ThemeProvider } from '@mui/material/styles'
 import AppRouter from './routes/index'
 import { themes } from './utils/theme'
 import { ColorModeContext } from './utils/context'
+import i18next from 'i18next'
+import { I18nextProvider } from 'react-i18next'
+import englishTranslation from './translations/en.json'
+
+i18next.init({
+  interpolation: { escapeValue: false },
+  lng: 'en',
+  fallbackLng: 'en',
+  resources: {
+    en: {
+      translations: englishTranslation
+    }
+  }
+})
+
 export default function App () {
   const { store, persistor } = storeConfig
   const [theme, setTheme] = useState(themes[0])
@@ -30,7 +45,9 @@ export default function App () {
       <Provider store={store}>
         <PersistGate persistor={persistor}>
           <ThemeProvider theme={theme}>
+          <I18nextProvider i18n={i18next}>
             <AppRouter />
+          </I18nextProvider>
           </ThemeProvider>
         </PersistGate>
       </Provider>
