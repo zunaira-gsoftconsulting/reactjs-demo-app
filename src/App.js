@@ -6,6 +6,7 @@ import { ThemeProvider } from '@mui/material/styles'
 import AppRouter from './routes/index'
 import { themes } from './utils/theme'
 import { ColorModeContext } from './utils/context'
+import CssBaseline from '@mui/material/CssBaseline'
 import i18next from 'i18next'
 import { I18nextProvider } from 'react-i18next'
 import englishTranslation from './translations/en.json'
@@ -42,6 +43,7 @@ export default function App () {
 
   return (
     <ColorModeContext.Provider value={colorMode}>
+      <CssBaseline />
       <Provider store={store}>
         <PersistGate persistor={persistor}>
           <ThemeProvider theme={theme}>

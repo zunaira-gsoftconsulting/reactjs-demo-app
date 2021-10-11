@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Button from '@mui/material/Button'
-import CssBaseline from '@mui/material/CssBaseline'
 import TextField from '@mui/material/TextField'
 import Link from '@mui/material/Link'
 import Paper from '@mui/material/Paper'
@@ -22,7 +21,6 @@ export default function Signup ({ loading, onSubmit }) {
 
   return (
     <Grid container component={Paper} className={classes.root}>
-      <CssBaseline />
       <Grid item xs={12} sm={8} md={5} elevation={6}>
         <div className={classes.paper}>
           <Typography component='h1' variant='h1'>

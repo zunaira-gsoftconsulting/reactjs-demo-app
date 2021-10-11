@@ -10,12 +10,11 @@ export const themes = ['light', 'dark'].map((mode) => {
           main: mode === 'light' ? 'rgb(24,119,242)' : 'rgb(45,136,255)'
         },
         background: {
-          default: mode === 'light' ? 'rgb(240,242,245)' : 'rgb(24,25,26)'
+          default: mode === 'light' ? '#fff' : 'rgb(24,25,26)'
         }
       },
 
       typography: {
-        color: mode === 'light' ? 'red' : '#000',
         fontFamily: [
           '-apple-system',
           'BlinkMacSystemFont',
