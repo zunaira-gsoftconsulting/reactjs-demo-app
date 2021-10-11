@@ -1,13 +1,16 @@
-import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import React from 'react'
+import { Route, Redirect } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
-const PublicRoutes = ({ component: Component, auth, ...rest }) => (
+const PublicRoutes = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
     render={(props) =>
-      !localStorage.token ? <Component {...props} /> : <Redirect to="/" />
+      !localStorage.token ? <Component {...props} /> : <Redirect to='/' />
     }
   />
-);
-
-export default PublicRoutes;
+)
+PublicRoutes.propTypes = {
+  component: PropTypes.element
+}
+export default PublicRoutes

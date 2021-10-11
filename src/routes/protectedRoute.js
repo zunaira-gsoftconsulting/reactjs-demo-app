@@ -1,13 +1,17 @@
-import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import React from 'react'
+import { Route, Redirect } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
-const ProtectedRoute = ({ component: Component, auth, ...rest }) => (
+const ProtectedRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
     render={(props) =>
-      localStorage.token ? <Component {...props} /> : <Redirect to="/login" />
+      localStorage.token ? <Component {...props} /> : <Redirect to='/login' />
     }
   />
-);
+)
+ProtectedRoute.propTypes = {
+  component: PropTypes.element
+}
 
-export default ProtectedRoute;
+export default ProtectedRoute
