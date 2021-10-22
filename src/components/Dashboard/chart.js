@@ -1,7 +1,6 @@
 import * as React from "react";
-import { useStyles } from "./styles";
 import Chart from "react-apexcharts";
-import { Box, Card, CardHeader } from '@mui/material';
+import { Box, Card, CardHeader } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 const options = {
@@ -19,19 +18,18 @@ const series = [
     data: [30, 40, 45, 50, 49, 60, 70, 91],
   },
 ];
-export default function RecipeReviewCard({data}) {
-  const classes = useStyles();
+export default function RecipeReviewCard() {
   const [translation] = useTranslation("translations");
 
   return (
     <Card>
-        <CardHeader
-          title={translation("dashboard.chart.title")}
-          subheader={translation("dashboard.chart.description")}
-        />
-        <Box sx={{ mx: 3 }} dir="ltr">
-          <Chart options={options} series={series} type="bar" width="500" />
-        </Box>
-      </Card>
+      <CardHeader
+        title={translation("dashboard.chart.title")}
+        subheader={translation("dashboard.chart.description")}
+      />
+      <Box sx={{ mx: 3 }} dir="ltr">
+        <Chart options={options} series={series} type="bar" width="500" />
+      </Box>
+    </Card>
   );
 }

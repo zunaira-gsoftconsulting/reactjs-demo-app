@@ -20,7 +20,7 @@ function Header() {
   const history = useHistory();
   const dispatch = useDispatch();
   const theme = useTheme();
-  const [translation, i18n] = useTranslation("translations");
+  const [translation] = useTranslation("translations");
   const colorMode = React.useContext(ColorModeContext);
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -93,8 +93,10 @@ function Header() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                <MenuItem onClick={handleLogout}>
+                  {" "}
+                  {translation("logout")}
+                </MenuItem>
               </Menu>
             </div>
           )}

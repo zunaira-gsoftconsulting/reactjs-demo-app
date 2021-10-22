@@ -3,10 +3,10 @@ import React from "react";
 import Typography from "@mui/material/Typography";
 import { useTranslation } from "react-i18next";
 import DashboardContainer from "../../containers/Dashboard";
-import {useStyles} from "./styles"
+import { useStyles } from "./styles";
 
 function Dashboard() {
-  const classes=useStyles()
+  const classes = useStyles();
   const [translation] = useTranslation("translations");
 
   return (
@@ -14,7 +14,7 @@ function Dashboard() {
       <Grid item xs={12} className={classes.item}>
         <Typography variant="h4">{translation("dashboard.title")}</Typography>
       </Grid>
-     <DashboardContainer/>
+      <DashboardContainer />
     </Grid>
   );
 }

@@ -5,11 +5,9 @@ import Card from "../../components/Dashboard/card";
 import Chart from "../../components/Dashboard/chart";
 import { useStyles } from "./styles";
 
-
 function Home() {
   const classes = useStyles();
   const [translation] = useTranslation("translations");
-
 
   const data = [
     { title: translation("dashboard.users"), count: 2340 },
@@ -19,7 +17,7 @@ function Home() {
   ];
   return (
     <>
-    <Grid item xs={12} className={classes.item}>
+      <Grid item xs={12} className={classes.item}>
         <Chart />
       </Grid>
       {data.map((item, index) => {
@@ -29,7 +27,6 @@ function Home() {
           </Grid>
         );
       })}
-      
     </>
   );
 }

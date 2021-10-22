@@ -10,7 +10,7 @@ export const useStyles = makeStyles((theme) => ({
     color: theme.colors.primary,
     backgroundColor: theme.colors.secondary,
     borderRadius: "16px",
-    marginBottom:"30px"
+    marginBottom: "30px",
   },
   footer: {
     fontWeight: 600,
@@ -22,8 +22,8 @@ export const useStyles = makeStyles((theme) => ({
     lineHeight: 1.5,
     fontSize: "24px",
   },
-  center:{
-    display:"flex",
-    justifyContent:"center"
-  }
+  center: {
+    display: "flex",
+    justifyContent: "center",
+  },
 }));

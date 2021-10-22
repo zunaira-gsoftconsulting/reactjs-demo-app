@@ -1,17 +1,17 @@
-import { makeStyles } from '@mui/styles'
+import { makeStyles } from "@mui/styles";
 
 export const useStyles = makeStyles(() => ({
   root: {
-    height: '100vh',
-    justifyContent: 'center',
-    alignItems: 'center'
+    height: "100vh",
+    justifyContent: "center",
+    alignItems: "center",
   },
   paper: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   form: {
-    width: '100%'
-  }
-}))
+    width: "100%",
+  },
+}));
