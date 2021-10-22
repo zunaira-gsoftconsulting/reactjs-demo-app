@@ -1,17 +1,53 @@
 {
-    "nav":{
-        "title":"Demo App",
-        "mode":"mode"
-    },
-    "dashboard":{
-        "title":"Tableau de bord",
-        "sales":"Ventes hebdomadaires",
-        "products":"Des produits",     
-        "income":"Le revenu" ,  
-        "users":"Utilisatrices" ,
-        "chart":{
-            "title":"Taux de conversion",
-            "description":"(+43%) que l'an dernier"
-        }     
+  "nav": {
+    "title": "Demo App",
+    "mode": "mode"
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "sales": "Ventes hebdomadaires",
+    "products": "Des produits",
+    "income": "Le revenu",
+    "users": "Utilisatrices",
+    "chart": {
+      "title": "Taux de conversion",
+      "description": "(+43%) que l'an dernier"
     }
+  },
+  "login": {
+    "title": "S'identifier",
+    "email": {
+      "label": "Adresse e-mail",
+      "message": "Entrez une adresse e-mail valide"
+    },
+
+    "password": {
+      "label": "Mot de passe",
+      "message": "Mot de passe requis"
+    },
+    "submit": "S'identifier",
+    "linkText": "Vous n'avez pas de compte ? S'inscrire"
+  },
+  "signup": {
+    "title": "S'inscrire",
+    "fName": {
+      "label": "Prénom",
+      "message": "Le prénom est requis"
+    },
+    "lName": {
+      "label": "Nom de famille",
+      "message": "Le nom de famille est requis "
+    },
+    "email": {
+      "label": "Adresse e-mail",
+      "message": "Entrez une adresse e-mail valide"
+    },
+    "password": {
+      "label": "Mot de passe requis",
+      "message": "Mot de passe requis"
+    },
+    "submit": "S'inscrire",
+    "linkText": "Vous avez déjà un compte? Connexion"
+  },
+  "logout": "Se déconnecter "
 }

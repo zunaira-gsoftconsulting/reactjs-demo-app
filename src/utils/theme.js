@@ -1,7 +1,6 @@
 import { createTheme } from "@mui/material/styles";
 
 export const themes = ["light", "dark"].map((mode) => {
-  console.log("mode", mode);
   return createTheme(
     {
       colors: {

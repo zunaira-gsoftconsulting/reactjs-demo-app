@@ -11,6 +11,6 @@ const PublicRoutes = ({ component: Component, ...rest }) => (
   />
 );
 PublicRoutes.propTypes = {
-  component: PropTypes.element,
+  component: PropTypes.any,
 };
 export default PublicRoutes;
