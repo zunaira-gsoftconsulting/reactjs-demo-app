@@ -11,10 +11,13 @@ import { useForm, Controller } from "react-hook-form";
 import { emailRegEx } from "../../utils/constants";
 import { useStyles } from "./styles";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
+import { details } from "../../redux/reducers/auth";
 
-export default function LogIn({ loading, onSubmit }) {
+export default function LogIn({ onSubmit }) {
   const classes = useStyles();
   const [translation] = useTranslation("translations");
+  const dispatch = useDispatch();
 
   const {
     handleSubmit,
@@ -84,7 +87,7 @@ export default function LogIn({ loading, onSubmit }) {
               className={classes.submit}
               onClick={handleSubmit}
             >
-              {loading ? (
+              {!dispatch(details()) ? (
                 <CircularProgress
                   style={{ color: "#fff", height: "20px", width: "20px" }}
                 />

@@ -1,17 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 import Login from "../../components/Login";
+import { details } from "../../redux/reducers/auth";
+
 export default function LoginContainer() {
   const history = useHistory();
-  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
   const onSubmit = (data) => {
     console.log(data);
-    setLoading(true);
     localStorage.setItem("token", "ejma01290lalk109019njshaaajjaiaj109109y");
-    setLoading(false);
+    dispatch(details({ user: data.email }));
     history.push("/");
   };
 
-  return <Login onSubmit={onSubmit} loading={loading} />;
+  return <Login onSubmit={onSubmit} />;
 }

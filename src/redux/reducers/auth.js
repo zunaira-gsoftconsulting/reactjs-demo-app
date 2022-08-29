@@ -1,34 +1,18 @@
-// const initialState = {
-//   success: false,
-//   loading: false,
-//   user: null,
-// };
-
-// const auth = function (state = initialState, action) {
-//   switch (action.type) {
-//     default: {
-//       return state;
-//     }
-//   }
-// };
-
-// export default auth;
-
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  success: false,
-  loading: false,
   user: null,
+  loading: false,
 };
 export const auth = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    authentication: (state, action) => {
+    details: (state, action) => {
       state.user = action.payload;
+      state.loading = true;
     },
   },
 });
-export const { authentication } = auth.actions;
+export const { details } = auth.actions;
 export default auth.reducer;
