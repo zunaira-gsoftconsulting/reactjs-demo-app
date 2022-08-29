@@ -13,8 +13,8 @@ import { useTheme } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import LanguagePopover from "../../components/LanguagePopover";
-import { changeLanguage } from "../../redux/actions/settings";
 import { ColorModeContext } from "../../utils/context";
+import { update } from "../../redux/reducers/settings";
 
 function Header() {
   const history = useHistory();
@@ -38,7 +38,7 @@ function Header() {
   };
 
   const handleLanguageChange = (lang) => {
-    dispatch(changeLanguage(lang));
+    dispatch(update(lang));
   };
 
   return (

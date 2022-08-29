@@ -1,22 +1,18 @@
-import { UPDATE_LANGUAGE } from "../types";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   language: "en",
 };
 
-const settings = function (state = initialState, action) {
-  const { payload } = action;
-  switch (action.type) {
-    case UPDATE_LANGUAGE: {
-      return {
-        ...state,
-        language: payload,
-      };
-    }
-    default: {
-      return state;
-    }
-  }
-};
+export const lang = createSlice({
+  name: "UPDATE_LANGUAGE",
+  initialState,
+  reducers: {
+    update: (state, action) => {
+      state.language = action.payload;
+    },
+  },
+});
 
-export default settings;
+export const { update } = lang.actions;
+export default lang.reducer;

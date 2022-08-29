@@ -26,7 +26,7 @@ i18next.init({
 });
 
 const AppWrapper = () => {
-  const language = useSelector((state) => state.settings.language);
+  const language = useSelector((state) => state.lang.language);
 
   useEffect(() => {
     i18next.changeLanguage(language);
