@@ -8,7 +8,7 @@ const rootReducer = persistReducer(
   {
     key: "root", // key is required
     storage, // storage is now required
-    // whitelist: ["auth"],
+    whitelist: ["auth"],
   },
 
   combineReducers({ auth, lang })
