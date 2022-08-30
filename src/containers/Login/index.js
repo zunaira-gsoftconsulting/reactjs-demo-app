@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import Login from "../../components/Login";
-import { details } from "../../redux/reducers/auth";
+import { fetchApi } from "../../redux/reducers/auth";
 
 export default function LoginContainer() {
   const history = useHistory();
@@ -12,7 +12,7 @@ export default function LoginContainer() {
   const onSubmit = (data) => {
     console.log(data);
     localStorage.setItem("token", "ejma01290lalk109019njshaaajjaiaj109109y");
-    dispatch(details({ user: data.email }));
+    dispatch(fetchApi());
     history.push("/");
   };
 

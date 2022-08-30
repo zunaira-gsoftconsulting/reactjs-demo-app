@@ -12,7 +12,7 @@ import { emailRegEx } from "../../utils/constants";
 import { useStyles } from "./styles";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
-import { details } from "../../redux/reducers/auth";
+import { fetchRequest } from "../../redux/reducers/auth";
 
 export default function LogIn({ onSubmit }) {
   const classes = useStyles();
@@ -87,7 +87,7 @@ export default function LogIn({ onSubmit }) {
               className={classes.submit}
               onClick={handleSubmit}
             >
-              {!dispatch(details()) ? (
+              {!dispatch(fetchRequest()) ? (
                 <CircularProgress
                   style={{ color: "#fff", height: "20px", width: "20px" }}
                 />

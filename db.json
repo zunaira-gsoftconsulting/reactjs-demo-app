@@ -1,0 +1,11 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "first-name": "zunaira",
+      "last-name": "asif",
+      "email": "zunaira@gsoftconsulting.com",
+      "password": "12345"
+    }
+  ]
+}

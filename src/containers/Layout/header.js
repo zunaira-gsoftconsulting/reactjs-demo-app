@@ -15,6 +15,7 @@ import { useDispatch } from "react-redux";
 import LanguagePopover from "../../components/LanguagePopover";
 import { ColorModeContext } from "../../utils/context";
 import { update } from "../../redux/reducers/settings";
+import { logout } from "../../redux/reducers/auth";
 
 function Header() {
   const history = useHistory();
@@ -24,6 +25,7 @@ function Header() {
   const colorMode = React.useContext(ColorModeContext);
   const handleLogout = () => {
     localStorage.removeItem("token");
+    dispatch(logout());
     history.push("/login");
   };
   const [auth] = React.useState(true);

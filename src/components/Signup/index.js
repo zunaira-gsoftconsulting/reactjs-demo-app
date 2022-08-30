@@ -6,18 +6,18 @@ import { Link } from "react-router-dom";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import { CircularProgress } from "@mui/material";
+// import { CircularProgress } from "@mui/material";
 import { useForm, Controller } from "react-hook-form";
 import { emailRegEx } from "../../utils/constants";
 import { useStyles } from "./styles";
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
-import { details } from "../../redux/reducers/auth";
+// import { useDispatch } from "react-redux";
+// import { details } from "../../redux/reducers/auth";
 
 export default function Signup({ onSubmit }) {
   const classes = useStyles();
   const [translation] = useTranslation("translations");
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const {
     handleSubmit,
@@ -127,13 +127,7 @@ export default function Signup({ onSubmit }) {
               className={classes.submit}
               onClick={handleSubmit}
             >
-              {!dispatch(details()) ? (
-                <CircularProgress
-                  style={{ color: "#fff", height: "20px", width: "20px" }}
-                />
-              ) : (
-                translation("signup.submit")
-              )}
+              {translation("signup.submit")}
             </Button>
             <Grid container>
               <Grid item>
