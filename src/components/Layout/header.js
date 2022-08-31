@@ -1,6 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -12,13 +12,13 @@ import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { useTheme } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
-import LanguagePopover from "../../components/LanguagePopover";
+import LanguagePopover from "../LanguagePopover";
 import { ColorModeContext } from "../../utils/context";
 import { update } from "../../redux/reducers/settings";
 import { logout } from "../../redux/reducers/auth";
 
 function Header() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const theme = useTheme();
   const [translation] = useTranslation("translations");
@@ -26,7 +26,7 @@ function Header() {
   const handleLogout = () => {
     localStorage.removeItem("token");
     dispatch(logout());
-    history.push("/login");
+    navigate("/login");
   };
   const [auth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);

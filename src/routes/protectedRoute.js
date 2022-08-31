@@ -1,23 +1,17 @@
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import PropTypes from "prop-types";
-import Layout from "../containers/Layout";
-const ProtectedRoute = ({ component: Component, ...rest }) => (
-  <Route
-    {...rest}
-    render={(props) =>
-      localStorage.token ? (
-        <Layout>
-          <Component {...props} />
-        </Layout>
-      ) : (
-        <Redirect to="/login" />
-      )
-    }
-  />
-);
+
+import Layout from "../components/Layout";
+
+const ProtectedRoute = ({ children }) => {
+  if (!localStorage.getItem("token")) {
+    return <Navigate to="/login" />;
+  }
+  return <Layout>{children}</Layout>;
+};
 ProtectedRoute.propTypes = {
-  component: PropTypes.any,
+  children: PropTypes.any,
 };
 
 export default ProtectedRoute;

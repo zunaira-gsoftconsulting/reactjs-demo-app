@@ -6,21 +6,6 @@ const initialState = {
   error: "",
 };
 
-export const fetchApi = () => {
-  return function (dispatch) {
-    dispatch(fetchRequest());
-    fetch("http://localhost:3000/user")
-      .then((res) => res.json())
-      .then((res) => {
-        dispatch(fetchSuccess(res));
-      })
-      .catch((error) => {
-        dispatch(fetchFailure(error.message));
-        console.log(error);
-      });
-  };
-};
-
 export const auth = createSlice({
   name: "auth",
   initialState,
@@ -44,6 +29,7 @@ export const auth = createSlice({
     },
   },
 });
+
 export const { fetchRequest, fetchSuccess, fetchFailure, logout } =
   auth.actions;
 export default auth.reducer;

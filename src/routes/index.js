@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./protectedRoute";
 import PublicRoute from "./publicRoute";
 import Home from "../pages/Dashboard";
@@ -8,19 +8,82 @@ import Signup from "../pages/Signup";
 import Grid from "@mui/material/Grid";
 import CssBaseline from "@mui/material/CssBaseline";
 
-function Routes() {
+function Routing() {
   return (
-    <Router>
+    <BrowserRouter>
       <Grid container>
         <CssBaseline />
-        <Switch>
-          <ProtectedRoute exact path="/" component={Home} />
-          <PublicRoute exact path="/login" component={Login} />
-          <PublicRoute exact path="/signup" component={Signup} />
-        </Switch>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <PublicRoute>
+                <Login />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <PublicRoute>
+                <Signup />
+              </PublicRoute>
+            }
+          />
+        </Routes>
       </Grid>
-    </Router>
+    </BrowserRouter>
   );
 }
 
-export default Routes;
+export default Routing;
+
+// import React from "react";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
+// // import ProtectedRoute from "./protectedRoute";
+// import PublicRoute from "./publicRoute";
+// import Home from "../pages/Dashboard";
+// import Login from "../pages/Login";
+// import Signup from "../pages/Signup";
+// import Grid from "@mui/material/Grid";
+// import CssBaseline from "@mui/material/CssBaseline";
+
+// function AppRouter() {
+//   return (
+//     <BrowserRouter>
+//       <Grid container>
+//         <CssBaseline />
+//         <Routes>
+//           <PublicRoute path="/login" component={<Login />} />
+//           {/* <Route path="/login" element={<Login />} /> */}
+//           <Route path="/signup" element={<Signup />} />
+//           <Route path="/" element={<Home />} />
+//           {/* <Route
+//             path="/*"
+//             element={<PublicRoute index element={<Login />} />}
+//           ></Route>
+
+//           <Route
+//             path="signup"
+//             element={<PublicRoute index element={<Signup />} />}
+//           ></Route>
+
+//           <Route
+//             path="/home"
+//             element={<ProtectedRoute index element={<Home />} />}
+//           ></Route> */}
+//         </Routes>
+//       </Grid>
+//     </BrowserRouter>
+//   );
+// }
+
+// export default AppRouter;
