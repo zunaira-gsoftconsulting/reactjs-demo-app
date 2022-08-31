@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Provider, useSelector } from "react-redux";
 import { PersistGate } from "redux-persist/lib/integration/react";
-import storeConfig from "./redux/store";
 import { ThemeProvider } from "@mui/material/styles";
-import AppRouter from "./routes/index";
+import { I18nextProvider } from "react-i18next";
+import i18next from "i18next";
+
 import { themes } from "./utils/theme";
 import { ColorModeContext } from "./utils/context";
-import i18next from "i18next";
-import { I18nextProvider } from "react-i18next";
+import storeConfig from "./redux/store";
+import AppRouter from "./routes/index";
 import englishTranslation from "./translations/en.json";
 import frenchTranslation from "./translations/fr.json";
 
