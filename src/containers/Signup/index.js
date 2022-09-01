@@ -1,16 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import { Link } from "react-router-dom";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import { useForm, Controller } from "react-hook-form";
-import { emailRegEx } from "../../utils/constants";
-import { useStyles } from "./styles";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+
+import { useStyles } from "./styles";
+import { emailRegEx } from "../../utils/constants";
+import SubmitButton from "../../components/SubmitButton";
+import Links from "../../components/Link";
+import Control from "../../components/TextField";
 
 export default function Signup() {
   const classes = useStyles();
@@ -35,108 +36,64 @@ export default function Signup() {
           <Typography component="h1" variant="h1">
             {translation("signup.title")}
           </Typography>
+
           <form
             className={classes.form}
             noValidate
             onSubmit={handleSubmit(onSubmit)}
           >
-            <Controller
+            <Control
               name="firstName"
               control={control}
-              defaultValue={""}
               rules={{ required: true }}
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  variant="outlined"
-                  margin="normal"
-                  fullWidth
-                  id="firstName"
-                  label={translation("signup.fName.label")}
-                  error={Boolean(errors?.firstName)}
-                  helperText={
-                    errors?.firstName && translation("signup.fName.message")
-                  }
-                />
-              )}
-            />
-            <Controller
-              name="lastName"
-              control={control}
-              defaultValue={""}
-              rules={{ required: true }}
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  variant="outlined"
-                  margin="normal"
-                  fullWidth
-                  id="lastName"
-                  label={translation("signup.lName.label")}
-                  error={Boolean(errors?.lastName)}
-                  helperText={
-                    errors?.lastName && translation("signup.lName.message")
-                  }
-                />
-              )}
-            />
-            <Controller
-              name="email"
-              control={control}
-              defaultValue={""}
-              rules={{ required: true, pattern: emailRegEx }}
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  variant="outlined"
-                  margin="normal"
-                  fullWidth
-                  id="email"
-                  label={translation("signup.email.label")}
-                  error={Boolean(errors?.email)}
-                  helperText={
-                    errors?.email && translation("signup.email.message")
-                  }
-                />
-              )}
-            />
-            <Controller
-              name="password"
-              control={control}
-              defaultValue={""}
-              rules={{ required: true }}
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  variant="outlined"
-                  margin="normal"
-                  fullWidth
-                  name="password"
-                  label={translation("signup.password.label")}
-                  type="password"
-                  error={Boolean(errors?.password)}
-                  helperText={
-                    errors?.password && translation("signup.password.message")
-                  }
-                />
-              )}
+              type="firstName"
+              label={translation("signup.fName.label")}
+              error={Boolean(errors?.firstName)}
+              helperText={
+                errors?.firstName && translation("signup.fName.message")
+              }
             />
 
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              onClick={handleSubmit}
-            >
-              {translation("signup.submit")}
-            </Button>
-            <Grid container>
-              <Grid item>
-                <Link to="/login">{translation("signup.linkText")}</Link>
-              </Grid>
-            </Grid>
+            <Control
+              name="lastName"
+              control={control}
+              rules={{ required: true }}
+              type="lastName"
+              label={translation("signup.lName.label")}
+              error={Boolean(errors?.lastName)}
+              helperText={
+                errors?.lastName && translation("signup.lName.message")
+              }
+            />
+
+            <Control
+              name="email"
+              control={control}
+              rules={{ required: true, pattern: emailRegEx }}
+              type="email"
+              label={translation("login.email.label")}
+              error={Boolean(errors?.email)}
+              helperText={errors?.email && translation("login.email.message")}
+            />
+
+            <Control
+              name="password"
+              control={control}
+              rules={{ required: true }}
+              type="password"
+              label={translation("signup.password.label")}
+              error={Boolean(errors?.password)}
+              helperText={
+                errors?.password && translation("signup.password.message")
+              }
+            />
+
+            <SubmitButton
+              handleSubmit={handleSubmit}
+              value={translation("signup.submit")}
+            />
+
+            <Links nav="/login" value={translation("signup.linkText")} />
           </form>
         </div>
       </Grid>
