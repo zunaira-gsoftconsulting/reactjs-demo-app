@@ -15,7 +15,7 @@ export const fetchApi = () => {
   return function (dispatch) {
     dispatch(fetchRequest());
     axios
-      .get(baseURL, config)
+      .get(`${baseURL}/user`, config)
       .then((res) => {
         dispatch(fetchSuccess(res));
       })
