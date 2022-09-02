@@ -104,7 +104,6 @@ function Header() {
                 onClose={handleClose}
               >
                 <MenuItem onClick={handleLogout}>
-                  {" "}
                   {translation("logout")}
                 </MenuItem>
               </Menu>
