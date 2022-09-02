@@ -1,9 +1,8 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
@@ -12,10 +11,12 @@ import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { useTheme } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
-import LanguagePopover from "../LanguagePopover";
+import LanguagePopover from "../../components/LanguagePopover";
 import { ColorModeContext } from "../../utils/context";
 import { update } from "../../redux/reducers/settings";
 import { logout } from "../../redux/reducers/auth";
+import Icon from "../../components/Icon";
+import Text from "../../components/Typography";
 
 function Header() {
   const navigate = useNavigate();
@@ -47,39 +48,46 @@ function Header() {
     <Grid container>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            {translation("nav.title")}
-          </Typography>
-          <Typography sx={{ textTransform: "capitalize" }}>
-            {theme.palette.mode} {translation("nav.mode")}
-          </Typography>
+          <Text
+            sx={{ flexGrow: 1 }}
+            variant="h6"
+            component="div"
+            value={translation("nav.title")}
+          />
 
-          <IconButton
+          <Text
+            sx={{ textTransform: "capitalize" }}
+            mode={theme.palette.mode}
+            value={translation("nav.mode")}
+          />
+
+          <Icon
             sx={{ ml: 1 }}
             onClick={colorMode.toggleColorMode}
             color="inherit"
-          >
-            {theme.palette.mode === "dark" ? (
-              <Brightness7Icon />
-            ) : (
-              <Brightness4Icon />
-            )}
-          </IconButton>
+            value={
+              theme.palette.mode === "dark" ? (
+                <Brightness7Icon />
+              ) : (
+                <Brightness4Icon />
+              )
+            }
+          />
 
           <LanguagePopover handleLanguageChange={handleLanguageChange} />
 
           {auth && (
             <div>
-              <IconButton
+              <Icon
                 size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
+                ariaLabel="account of current user"
+                ariaControls="menu-appbar"
+                ariaHaspopup="true"
                 onClick={handleMenu}
                 color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
+                value={<AccountCircle />}
+              />
+
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorEl}

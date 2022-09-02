@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -14,6 +13,7 @@ import { fetchApi } from "../../redux/api";
 import SubmitButton from "../../components/Button";
 import Links from "../../components/Link";
 import Control from "../../components/TextField";
+import Text from "../../components/Typography";
 
 export default function LogIn() {
   const classes = useStyles();
@@ -37,9 +37,11 @@ export default function LogIn() {
     <Grid container component={Paper} className={classes.root}>
       <Grid item xs={12} sm={8} md={5} elevation={6}>
         <div className={classes.paper}>
-          <Typography component="h1" variant="h1">
-            {translation("login.title")}
-          </Typography>
+          <Text
+            component="h1"
+            variant="h1"
+            value={translation("login.title")}
+          />
 
           <form
             className={classes.form}
