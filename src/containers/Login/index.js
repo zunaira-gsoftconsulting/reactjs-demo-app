@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 import { useStyles } from "./styles";
 import { emailRegEx } from "../../utils/constants";
 import { fetchApi } from "../../redux/api";
-import SubmitButton from "../../components/SubmitButton";
+import SubmitButton from "../../components/Button";
 import Links from "../../components/Link";
 import Control from "../../components/TextField";
 

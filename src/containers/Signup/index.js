@@ -9,7 +9,7 @@ import { useForm } from "react-hook-form";
 
 import { useStyles } from "./styles";
 import { emailRegEx } from "../../utils/constants";
-import SubmitButton from "../../components/SubmitButton";
+import SubmitButton from "../../components/Button";
 import Links from "../../components/Link";
 import Control from "../../components/TextField";
 
