@@ -10,7 +10,7 @@ import { useStyles } from "./styles";
 import { emailRegEx } from "../../utils/constants";
 import SubmitButton from "../../components/Button";
 import Links from "../../components/Link";
-import Control from "../../components/TextField";
+import Control from "../../components/Controller";
 import Text from "../../components/Typography";
 
 export default function Signup() {
@@ -93,9 +93,14 @@ export default function Signup() {
             <SubmitButton
               handleSubmit={handleSubmit}
               value={translation("signup.submit")}
+              sx={{ width: "100%" }}
             />
 
-            <Links nav="/login" value={translation("signup.linkText")} />
+            <Grid container>
+              <Grid item>
+                <Links nav="/login" value={translation("signup.linkText")} />
+              </Grid>
+            </Grid>
           </form>
         </div>
       </Grid>

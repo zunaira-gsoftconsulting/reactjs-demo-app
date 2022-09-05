@@ -15,8 +15,8 @@ export default Text;
 
 Text.propTypes = {
   sx: PropTypes.any,
-  value: PropTypes.string,
+  value: PropTypes.any,
   variant: PropTypes.string,
   component: PropTypes.string,
-  mode: PropTypes.bool,
+  mode: PropTypes.string,
 };

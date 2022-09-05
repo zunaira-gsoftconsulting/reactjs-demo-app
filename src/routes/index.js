@@ -1,12 +1,16 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ProtectedRoute from "./protectedRoute";
-import PublicRoute from "./publicRoute";
-import Home from "../pages/Dashboard";
-import Login from "../pages/Login";
-import Signup from "../pages/Signup";
-import Grid from "@mui/material/Grid";
 import CssBaseline from "@mui/material/CssBaseline";
+import Grid from "@mui/material/Grid";
+
+import PublicRoute from "./publicRoute";
+import ProtectedRoute from "./protectedRoute";
+import Signup from "../pages/Signup";
+import Login from "../pages/Login";
+import Home from "../pages/Dashboard";
+import Crud from "../pages/Crud";
+import Add from "../containers/Add";
+import Update from "../containers/Update";
 
 function Routing() {
   return (
@@ -14,14 +18,6 @@ function Routing() {
       <Grid container>
         <CssBaseline />
         <Routes>
-          <Route
-            path="/"
-            element={
-              <ProtectedRoute>
-                <Home />
-              </ProtectedRoute>
-            }
-          />
           <Route
             path="/login"
             element={
@@ -36,6 +32,38 @@ function Routing() {
               <PublicRoute>
                 <Signup />
               </PublicRoute>
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/crud"
+            element={
+              <ProtectedRoute>
+                <Crud />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/add"
+            element={
+              <ProtectedRoute>
+                <Add />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/update/:id"
+            element={
+              <ProtectedRoute>
+                <Update />
+              </ProtectedRoute>
             }
           />
         </Routes>

@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Grid, Box } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
@@ -17,6 +17,7 @@ import { update } from "../../redux/reducers/settings";
 import { logout } from "../../redux/reducers/auth";
 import Icon from "../../components/Icon";
 import Text from "../../components/Typography";
+import Links from "../../components/Link";
 
 function Header() {
   const navigate = useNavigate();
@@ -48,12 +49,23 @@ function Header() {
     <Grid container>
       <AppBar position="static">
         <Toolbar>
-          <Text
-            sx={{ flexGrow: 1 }}
-            variant="h6"
-            component="div"
+          <Links
+            style={{ textDecoration: "none", color: "white" }}
+            nav="/"
             value={translation("nav.title")}
           />
+          <Box
+            sx={{
+              flexGrow: 1,
+              ml: 2,
+            }}
+          >
+            <Links
+              style={{ textDecoration: "none", color: "white" }}
+              nav="/crud"
+              value="Crud"
+            />
+          </Box>
 
           <Text
             sx={{ textTransform: "capitalize" }}

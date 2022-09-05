@@ -12,7 +12,7 @@ import { emailRegEx } from "../../utils/constants";
 import { fetchApi } from "../../redux/api";
 import SubmitButton from "../../components/Button";
 import Links from "../../components/Link";
-import Control from "../../components/TextField";
+import Control from "../../components/Controller";
 import Text from "../../components/Typography";
 
 export default function LogIn() {
@@ -73,9 +73,14 @@ export default function LogIn() {
             <SubmitButton
               handleSubmit={handleSubmit}
               value={translation("login.submit")}
+              sx={{ width: "100%" }}
             />
 
-            <Links nav="/signup" value={translation("login.linkText")} />
+            <Grid container>
+              <Grid item>
+                <Links nav="/signup" value={translation("login.linkText")} />
+              </Grid>
+            </Grid>
           </form>
         </div>
       </Grid>

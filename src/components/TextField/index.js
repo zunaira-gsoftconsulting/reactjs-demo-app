@@ -1,40 +1,31 @@
 import React from "react";
 import PropTypes from "prop-types";
 import TextField from "@mui/material/TextField";
-import { Controller } from "react-hook-form";
 
-const Control = ({ name, control, rules, type, label, error, helperText }) => {
+const Textfield = ({ label, sx, name, type, value, onChange }) => {
   return (
-    <Controller
+    <TextField
+      id="outlined-basic"
+      variant="outlined"
+      margin="normal"
+      fullWidth
+      label={label}
+      sx={sx}
       name={name}
-      control={control}
-      defaultValue={""}
-      rules={rules}
-      render={({ field }) => (
-        <TextField
-          {...field}
-          variant="outlined"
-          margin="normal"
-          fullWidth
-          name={name}
-          type={type}
-          label={label}
-          error={error}
-          helperText={helperText}
-        />
-      )}
+      type={type}
+      value={value}
+      onChange={onChange}
     />
   );
 };
 
-export default Control;
+export default Textfield;
 
-Control.propTypes = {
+Textfield.propTypes = {
+  label: PropTypes.string,
+  sx: PropTypes.any,
+  value: PropTypes.any,
   name: PropTypes.string,
-  control: PropTypes.any,
-  rules: PropTypes.any,
   type: PropTypes.string,
-  label: PropTypes.any,
-  error: PropTypes.bool,
-  helperText: PropTypes.any,
+  onChange: PropTypes.func,
 };

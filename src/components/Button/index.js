@@ -6,13 +6,13 @@ import { useDispatch } from "react-redux";
 import Loader from "../../components/Loader";
 import { fetchRequest } from "../../redux/reducers/auth";
 
-const SubmitButton = ({ handleSubmit, value }) => {
+const SubmitButton = ({ handleSubmit, value, sx }) => {
   const dispatch = useDispatch();
 
   return (
     <Button
       type="submit"
-      fullWidth
+      sx={sx}
       variant="contained"
       color="primary"
       onClick={handleSubmit}
@@ -27,4 +27,5 @@ export default SubmitButton;
 SubmitButton.propTypes = {
   handleSubmit: PropTypes.func,
   value: PropTypes.any,
+  sx: PropTypes.any,
 };

@@ -14,6 +14,16 @@
       "description": "(+43%) than last year"
     }
   },
+  "crud": {
+    "title": "Crud",
+    "name": "Name",
+    "email": "Email",
+    "actions": "Actions",
+    "add": "Add",
+    "edit": "Update",
+    "delete": "Delete",
+    "message": "This is a required field"
+  },
   "login": {
     "title": "Sign In",
     "email": {

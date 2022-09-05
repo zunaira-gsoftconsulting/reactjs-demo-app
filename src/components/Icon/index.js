@@ -35,5 +35,5 @@ Icon.propTypes = {
   size: PropTypes.string,
   ariaLabel: PropTypes.string,
   ariaControls: PropTypes.string,
-  ariaHaspopup: PropTypes.bool,
+  ariaHaspopup: PropTypes.string,
 };

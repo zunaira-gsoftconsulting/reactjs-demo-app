@@ -1,19 +1,19 @@
 {
   "user": [
     {
-      "id": 1,
-      "first-name": "zunaira",
-      "last-name": "asif",
-      "email": "zunaira@gsoftconsulting.com",
-      "password": "12345"
+      "name": "zunaira",
+      "email": "zunaira@gmail.com",
+      "id": 1
     },
     {
-      
-      "id": 2,
-      "first-name": "zoha",
-      "last-name": "urooj",
-      "email": "zoha@gsoftconsulting.com",
-      "password": "12345"
+      "name": "mashal",
+      "email": "mashal@gmail.com",
+      "id": 2
+    },
+    {
+      "name": "hijab",
+      "email": "hijab@gmail.com",
+      "id": 3
     }
   ]
 }

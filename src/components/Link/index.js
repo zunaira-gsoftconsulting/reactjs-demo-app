@@ -1,15 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
 
-const Links = ({ value, nav }) => {
+const Links = ({ value, nav, style }) => {
   return (
-    <Grid container>
-      <Grid item>
-        <Link to={nav}>{value}</Link>
-      </Grid>
-    </Grid>
+    <Link style={style} to={nav}>
+      {value}
+    </Link>
   );
 };
 
@@ -18,4 +15,5 @@ export default Links;
 Links.propTypes = {
   nav: PropTypes.string,
   value: PropTypes.any,
+  style: PropTypes.any,
 };
